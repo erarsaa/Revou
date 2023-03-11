@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Travel Agency | GoTravel</title>
+    <link rel="shortcut icon" type="image" href="asset/logo.png">
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+    <!--header-->
+    <header style="border-bottom: 1px solid rgb(29, 28, 28);">
+        <navbar class="container">
+            <div class="navbar">
+                <img class="logo" src="asset/logo.png" alt="logo"/>
+                <h2>Travel Agency | GoTravel | Let's Travel Around The World</h2>
+                <div class="menu">
+                    <a class="menu-item" href="#hero">Home</a>
+                    <a class="menu-item" href="#package">Our Package</a>
+                    <a class="menu-item" href="#call-us">Call Us</a>
+                </div>
+            </div>
+        </navbar>
+    </header>
+    <!--main-->
+    <main>
+        <!--hero-->
+        <section id="hero">
+            <div class="container">
+                <div class="hero-title">
+                    <h1>Your Trusted Travel Agent's</h1>
+                    <p>'Your Hapiness is Our Hapiness'</p>
+                </div>
+            </div>
+        </section>
+        <!--about-->
+        <section id="about-contact">
+            <div class="container">
+                <div class="about-contact">
+                    <div class="about">
+                        <!--slideshow-->
+                        <div class="slideshow" id="slideshow">
+                            <img class="slideshow-img" src="asset/bali.png" alt="">
+                            <img class="slideshow-img" src="asset/bandung.jpg" alt="">
+                            <img class="slideshow-img" src="asset/japan.jpg" alt="">
+                            <img class="slideshow-img" src="asset/singapore.jpg" alt="">
+                        </div>
+
+                        <script>
+                            var slideIndex = 1;
+                            showDivs(slideIndex);
+
+                            function plusDivs(n) {
+                                showDivs((slideIndex += n));
+                            }
+
+                            function showDivs(n) {
+                                var i;
+                                var imgList = document.getElementsByClassName("slideshow-img");
+                                if (n > imgList.length) slideIndex = 1;
+                                else if (n < 1) slideIndex = imgList.length; 
+                                //untuk menampilkan salah satu img
+                                for(i = 0; i < imgList.length; i ++) {
+                                    imgList[i].style.display = "none";
+                                }
+                                // 1 2 3
+                                // 0 1 2
+                                imgList[slideIndex - 1].style.display = "block";
+                            }
+                            /* Ini untuk auto slide*/
+                            setInterval(() => {
+                                plusDivs(1);
+                            }, 2000);
+                        </script>
+                        <!--review pengalaman-->
+                        <div class="about-content">
+                            <div class="content-caption">
+                                <p>
+                                    "It's great to have a vacation with GoTravel."
+                                </p>
+                            </div>
+                            <div class="content-person">
+                                <img src="asset/renjun.jpg" alt="" width="50px" height="50px">
+                                <div class="person-info">
+                                    <h6>Huang Renjun</h6>
+                                    <p>College Student, 22</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="border"/>
+                        <!--benefit-->
+                        <div class="about-information">
+                            <h6 class="information-title">
+                                GoTravel is a travel agent serves Indonesian domestic and international flight reservation and 
+                                ticketing. Along with ticketing services, GoTravel is a tour operator serving all the tourism 
+                                need such as tour packages, transportation, hotel info. In addition, you will get many benefits, 
+                                such as:
+                            </h6>
+                            <ul class="information-list">
+                                <li>
+                                    <div class="list-number">1</div>
+                                    <div class="list-paragraph">
+                                        <p>Low cost of travel tickets and lodging</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-number">2</div>
+                                    <div class="list-paragraph">
+                                        <p>Recommendation of tourist attractions and popular restaurant</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-number">3</div>
+                                    <div class="list-paragraph">
+                                        <p>100% refund guarantee</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--contact us-->
+                    <div class="contact">
+                        <div class="contact-card">
+                            <!--hero card-->
+                            <div class="card-title">
+                                <h4 align="center">Contact Us</h4>
+                                <p align="center">Sales will contact you as soon as possible within  
+                                   1x24 hours after you fill out the form.
+                                </p>
+                            </div>
+                            <!--form-->
+                            <form class="costumer-form" name="costumer-form" onsubmit="return validateForm()">
+                                <div class="input">
+                                    <label for="">Your Name</label>
+                                    <input type="text" placeholder="Full Name" name="name">
+                                </div>
+                                <div class="input">
+                                    <label for="">Email</label>
+                                    <input type="text" placeholder="Email Address" name="email">
+                                </div>
+                                <div class="input">
+                                    <label for="destination">Destination</label>
+                                    <select name="destination" id="">
+                                        <option id="Select Your Destination" value="Select Your Destination">Select Your Destination</option>
+                                        <option id="bali" value="bali">Bali</option>
+                                        <option id="hokkaido" value="hokkaido">Hokkaido</option>
+                                        <option id="singapore" value="singapore">Singapore</option>
+                                        <option id="bandung" value="bandung">Bandung</option>
+                                        <option id="surabaya" value="surabaya">Surabaya</option>
+                                        <option id="jakarta" value="jakarta">Jakarta</option>
+                                    </select>
+                                </div>
+                                <input type="submit" value="Send">
+                            </form>
+                            <!--Validation Form-->
+                            <script>
+                                function validateForm() {
+                                    /*Mengambil Nilai*/
+                                    var name = document.forms ["costumer-form"] ["name"].value;
+                                    var email = document.forms ["costumer-form"] ["email"].value;
+                                    var destination = document.forms ["costumer-form"] ["destination"].value;
+                                    console.log({ name, email, destination });
+                                    /*Validasi Form*/
+                                    if ( name =="" || email =="" || destination =="" || destination =="Select Your Destination") {
+                                        alert("Input cannot be empty");
+                                        return false;
+                                    }
+                                } 
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Our Package-->
+        <section id="hero-package">
+            <div class="package-title">
+                <h1>Our Package</h1>
+            </div>
+        </section>
+        <!-- Ini bagian Package Card -->
+        <section id="package">
+            <div class="container">
+                <!-- Ini Package List -->
+                <div class="package-list" id="package-list">
+                    <ul class="list-package">
+                        <li>
+                            <div class="list-icon"><img src="asset/like.jpg" height="50" width="50"></div>
+                            <div class="list-paragraf">
+                                <h5>Bali</h5>
+                                <p>
+                                    Bali is rated as one of the best travel destinations <br>
+                                    in the world. Whatever your age, background, budget<br>
+                                    or interest, there is something great for everyone <br>
+                                    to explore and discover. 
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list-package">
+                        <li>
+                            <div class="list-icon"><img src="asset/like.jpg" height="50" width="50"></div>
+                            <div class="list-paragraf">
+                                <h5>Hokkaido</h5>
+                                <p>
+                                    This northern region of Japan, blanketed in perfect<br>
+                                    white snow, offers harsh, white winters and blazing<br>
+                                    hot summers—a haven for die-hard foodies, nature lovers<br>
+                                    and outdoor adventurers looking for an adrenaline rush.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list-package">
+                        <li>
+                            <div class="list-icon"><img src="asset/like.jpg" height="50" width="50"></div>
+                            <div class="list-paragraf">
+                                <h5>Singapore</h5>
+                                <p>
+                                    Singapore is more than its tourist attractions. <br> 
+                                    It’s constantly evolving, reinventing, and reimagining<br>
+                                    itself, with people who are passionate about creating <br>
+                                    new possibilities. It’s not just about what you can do <br>
+                                    here, it’s about what you can be.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <hr class="border"/>
+                <div class="package-list" id="package-list">
+                    <ul class="list-package">
+                        <li>
+                            <div class="list-icon"><img src="asset/like.jpg" height="50" width="50"></div>
+                            <div class="list-paragraf">
+                                <h5>Bandung</h5>
+                                <p>
+                                    Bandung has a million charms that always make tourists <br>
+                                    stunned. How come? Ranging from nature-based tourist <br>
+                                    attractions, contemporary recreational destinations, to <br>
+                                    culinary and fashion trends, you can find all of them in <br>
+                                    the capital city of West Java.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list-package">
+                        <li>
+                            <div class="list-icon"><img src="asset/like.jpg" height="50" width="50"></div>
+                            <div class="list-paragraf">
+                                <h5>Surabaya</h5>
+                                <p>
+                                    Surabaya is considered worthy of being the best tourism <br>
+                                    city because it meets various assessment parameters. Among <br>
+                                    them are creation, commitment, and good leadership in developing <br>
+                                    regional tourism.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list-package">
+                        <li>
+                            <div class="list-icon"><img src="asset/like.jpg" height="50" width="50"></div>
+                            <div class="list-paragraf">
+                                <h5>Jakarta</h5>
+                                <p>
+                                    Jakarta is called a tourist city because this city has many <br>
+                                    interesting places to visit, such as amusement parks, museums, <br>
+                                    historical monuments, shopping places, traditional markets, and <br>
+                                    many more.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>   
+            </div>
+        </section>
+    </main>
+    <main  id="call-us" >
+        <section>
+            <div class="container">
+                <!-- Ini Package Closing -->
+                <div class="package-closing">
+                    <h2>Are you Interested in Vacationing with GoTravel?</h2>
+                    <h5 align="center">
+                        Come on vacation with GoTravel and get an unforgettable holiday experience.
+                    </h5>
+                    <button class="call"><a href="https://instagram.com/erarsaa">CALL FOR BOOKING</a></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--Footer-->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <img class="logo" src="asset/logo.png" alt="logo">
+                <div>
+                    <h4>Term of Services</h4>
+                    <h4>Privacy Policy</h4>
+                </div>
+                <p>&copy; 2023 GoTravel</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
